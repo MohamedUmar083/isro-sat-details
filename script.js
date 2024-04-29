@@ -1,6 +1,7 @@
 const spaceCraft = document.getElementById("spaceCraft");
 const centers = document.getElementById("centers");
 const cusCraft = document.getElementById("customerSpacecraft");
+const reset = document.getElementById("reset");
 const containertable = document.getElementById("container-body");
 
 function tableElements(tagname, classname, id, content) {
@@ -10,8 +11,15 @@ function tableElements(tagname, classname, id, content) {
   tag.innerHTML = content;
   return tag;
 }
+
+function heading(tagname, content) {
+  let head = document.createElement(tagname);
+  head.innerHTML = content;
+  return head;
+}
+
 const spaceCraftdiv = tableElements("div", "table-responsive", "", "");
-const spaceCrafttable = tableElements("table", "table-stripped", "", "");
+const spaceCrafttable = tableElements("table", "table table-striped", "", "");
 const spaceCrafthead = tableElements(
   "thead",
   "",
@@ -19,9 +27,10 @@ const spaceCrafthead = tableElements(
   "<tr><th>S.no</th><th>Name Of the Space Craft</th></tr>"
 );
 const spaceCrafttbody = tableElements("tbody", "", "tbody", "");
+const spaceCraftheading = heading("h2", "ISRO Space-Crafts Information");
 
 const centersdiv = tableElements("div", "table-responsive", "", "");
-const centerstable = tableElements("table", "table-sriped", "", "");
+const centerstable = tableElements("table", "table table-striped", "", "");
 const centersthead = tableElements(
   "thead",
   "",
@@ -29,9 +38,10 @@ const centersthead = tableElements(
   "<tr><th>S.no</th><th>Name Of the Centers</th><th>Place</th><th>State</th></tr>"
 );
 const centerstbody = tableElements("tbody", "", "centerstbody", "");
+const centerheading = heading("h2", "ISRO Centers Information");
 
 const csatdiv = tableElements("div", "table-responsive", "", "");
-const csattable = tableElements("table", "table-striped", "", "");
+const csattable = tableElements("table", "table table-striped", "", "");
 const csatthead = tableElements(
   "thead",
   "",
@@ -39,7 +49,7 @@ const csatthead = tableElements(
   "<tr><th>S.no</th><th>ID</th><th>Name Of the Country</th><th>Launch Date</th><th>Launcher</th></tr>"
 );
 const csattbody = tableElements("tbody", "", "csattbody", "");
-
+const csatheading = heading("h2", "ISRO Customer Space-Crafts Information");
 /*Event Listeners*/
 
 spaceCraft.addEventListener("click", () => {
@@ -64,7 +74,7 @@ spaceCraft.addEventListener("click", () => {
     });
   spaceCraftdiv.appendChild(spaceCrafttable);
   spaceCrafttable.append(spaceCrafthead, spaceCrafttbody);
-  containertable.appendChild(spaceCraftdiv);
+  containertable.append(spaceCraftheading, spaceCraftdiv);
 });
 
 centers.addEventListener("click", () => {
@@ -93,7 +103,7 @@ centers.addEventListener("click", () => {
     });
   centersdiv.appendChild(centerstable);
   centerstable.append(centersthead, centerstbody);
-  containertable.appendChild(centersdiv);
+  containertable.append(centerheading, centersdiv);
 });
 
 cusCraft.addEventListener("click", () => {
@@ -124,5 +134,9 @@ cusCraft.addEventListener("click", () => {
     });
   csatdiv.appendChild(csattable);
   csattable.append(csatthead, csattbody);
-  containertable.appendChild(csatdiv);
+  containertable.append(csatheading, csatdiv);
+});
+
+reset.addEventListener("click", () => {
+  location.reload();
 });
