@@ -1,0 +1,27 @@
+.container-main {
+  text-align: center;
+  border: 2px solid black;
+  margin: 25px auto 25px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.container-head label {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.container-head {
+  text-align: center;
+  margin: 25px auto 25px auto;
+  padding: 20px;
+}
+
+.container-body h2 {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+table {
+  border: 2px;
+}
